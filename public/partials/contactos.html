@@ -1,0 +1,29 @@
+<p class="text-warning"><strong>Quantidade de contactos: {{ contactos.length }}</strong></p>
+<div class="row">
+    <a href="#!novo" class="btn btn-primary">Adicionar</a>
+    <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="pesquisar..." ng-model='pesquisa'>
+    </div>
+</div>
+<div class="mt-4"></div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Emergência</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contacto in contactos| filter: pesquisa">
+            <td>{{ contacto.nome }}</td>
+            <td>{{ contacto.email }}</td>
+            <td>{{ contacto.emergencia.nome }}</td>
+            <td>
+                <a ng-href="#!/contacto/{{contacto._id}}" class="btn btn-sm btn-info">editar</a>
+                <a ng-click="remover(contacto)" class="btn btn-sm btn-danger">remover</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

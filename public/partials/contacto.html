@@ -1,0 +1,24 @@
+
+<div class="alert alert-success" ng-show="mensagem">
+    <strong>{{mensagem}}</strong>
+</div>
+<h1 ng-show="contacto._id">Edição de contacto</h1>
+<h1 ng-hide="contacto._id">Cadastro de contacto</h1>
+<form ng-submit="salvar()">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" class="form-control" ng-model="contacto.nome">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" class="form-control" ng-model="contacto.email">
+    </div>
+    <div class="form-group">
+        <label for="emergencia">Emergência</label>
+        <select name="emergencia" id="emergencia" ng-model="contacto.emergencia" ng-options="contacto._id as contacto.nome for contacto in contactos" class="form-control">
+            
+        </select>
+    </div>
+    <a ng-href="#!contactos" class="btn btn-info">Voltar</a>
+    <button class="btn btn-success">Salvar</button>
+</form>
