@@ -3,7 +3,13 @@ var mongoose = require('mongoose');
 
 module.exports = function(uri){
 
-    mongoose.connect(uri);
+    const connectionParams={
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true 
+    }
+
+    mongoose.connect(uri, connectionParams);
 
     mongoose.connection.on('connected', function(){
         console.log('Mongoose! conectado com sucesso.');
@@ -14,7 +20,7 @@ module.exports = function(uri){
     });
 
     mongoose.connection.on('error', function(erro){
-        console.log('Mongoose! erro ao conectar: '+ erro);
+        console.log('Mongoose! erro ao conectar: ');
     });
 
     process.on('SIGNIT', function(){

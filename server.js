@@ -1,8 +1,8 @@
 var http = require('http');
 var app = require('./config/express')();
 require('./config/passport')()
-require('./config/database')('mongodb://localhost:27017/contacto');
-
-http.createServer(app).listen(app.get('port'), function(){
-    console.log('servidor rodando na porta: '+ app.get('port'));
+require('./config/database')('mongodb+srv://bernardo:bernardo@bcluster.vqcbi.mongodb.net/contacto?retryWrites=true&w=majority');
+const PORT = process.env.PORT || 3000
+http.createServer(app).listen(PORT, function(){
+    console.log('servidor rodando na porta: '+ PORT);
 })
