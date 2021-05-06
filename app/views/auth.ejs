@@ -7,30 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Contactos</title>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/all.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="d-flex justify-content-center">
-            <form action="" method="post">
-                <div class="row">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username">
-                    </div>
+        <div class="row justify-content-center mt-4">
+            <form action="login" method="post">
+                <h2>Entra em sua conta</h2>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="insira o seu nome ou email">
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="upassword">Password</label>
-                        <input type="text" class="form-control" name="password">
-                    </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="insira a sua palavra-passe">
                 </div>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center">entrar</button>
+                <div class="mt-4"></div>
+                <a href="/auth/github" class="btn btn-success d-flex justify-content-center">
+                    entrar com github
+                </a>
             </form>
-            <a href="/auth/github">
-                <h1 class="text-center">Entre pelo github</h1>
-            </a>
         </div>
     </div>
 </body>
+<script src="vendor/font-awesome/js/all.js"></script>
 
 </html>
