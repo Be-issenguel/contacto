@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var helmet = require('helmet');
 
 module.exports = function () {
     app = express();
@@ -33,6 +34,9 @@ module.exports = function () {
     app.use(passport.initialize());
     //configuração para que o passport salve os dados de autenticação na sessão
     app.use(passport.session());
+    //protegendo headers
+    app.use(helmet());
+    app.use(helmet.hidePoweredBy({setTo: 'PHP 5.5.14'}));
 
     load('models', {
             cwd: 'app'

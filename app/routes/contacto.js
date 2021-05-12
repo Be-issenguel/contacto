@@ -8,7 +8,7 @@ module.exports = function (app) {
     })
 
     app.route('/contactos')
-        .get(verificarAutenticacao ,ContactoController.index)
+        .get(ContactoController.index)
         .post(ContactoController.storeOrUpdate);
     app.route('/contactos/:id')
         .get(ContactoController.find)
